@@ -40,14 +40,11 @@ logging:
 jwt:
   secretKey: secret
   issuer: www.farukgenc.com
-  expirationMinute: 10
+  expirationMinute: 60
 
 swagger:
-  contact-name: Faruk Genc
-  contact-mail: omer@farukgenc.com
-  contact-url: https://farukgenc.com
-  app-name: Spring Boot Boilerplate Project
-  app-description: "Spring Boot Boilerplate is a starter kit. This project includes : Spring Boot(2.7.4), Spring Data JPA, Spring Validation, Spring Security + JWT Token, PostgreSQL, Mapstruct, Lombok, Swagger"
-  app-version: 2.0.0
-  app-license-url: https://www.apache.org/licenses/LICENSE-2.0.html
-  app-license: Apache 2.0
+  contact-name: Enes Ilkbay
+  contact-mail: enes.ilkbay10@gmail.com
+  app-name: Camli Mescid Giris Cikis Sistemi
+  app-description: "Caml Mescid giris cikis Backendserver"
+  app-version: 1.0.0
