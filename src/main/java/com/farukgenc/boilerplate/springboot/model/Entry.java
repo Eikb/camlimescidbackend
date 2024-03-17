@@ -3,6 +3,8 @@ package com.farukgenc.boilerplate.springboot.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -17,8 +19,8 @@ public class Entry {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Integer id;
-    Date exit;
-    Date enter;
+    LocalDateTime exit;
+    LocalDateTime enter;
     String name;
     Boolean inKurs;
 }
