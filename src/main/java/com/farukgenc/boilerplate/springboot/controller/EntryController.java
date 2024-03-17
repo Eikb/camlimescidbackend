@@ -65,6 +65,7 @@ public class EntryController {
     ResponseEntity<EntryResponse> addEnter(@Valid @RequestBody EntryRequest entryRequest){
         try {
             entryService.addEnter(entryRequest.getEntcryptedQrCode());
+
             return ResponseEntity.status(HttpStatus.CREATED).body(new EntryResponse(200,"Eingang wurde verzeichnet"));
         } catch (NoSuchPaddingException e) {
             throw new RuntimeException(e);

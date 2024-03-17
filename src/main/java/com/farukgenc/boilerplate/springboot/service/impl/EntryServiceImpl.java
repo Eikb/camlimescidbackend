@@ -57,6 +57,7 @@ public class EntryServiceImpl implements EntryService {
            String studentId = qrCodeService.decryptCode(entcryptedCode);
            Student student = studentService.getStudentById(Integer.valueOf(studentId));
            Entry entry = entryRepository.findByEnterNullAndInKursFalseAndName(student.getName());
+           entryRepository.updateInKursById(true, entry.getId());
            entryRepository.updateEnterById(LocalDateTime.now(),entry.getId());
            return "Eingang hinzugefügt";
        }catch (NullPointerException e){

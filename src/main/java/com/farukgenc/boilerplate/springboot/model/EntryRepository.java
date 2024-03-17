@@ -10,6 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 public interface EntryRepository extends JpaRepository<Entry, Integer> {
+    @Transactional
+    @Modifying
+    @Query("update Entry e set e.inKurs = ?1 where e.id = ?2")
+    int updateInKursById(Boolean inKurs, Integer id);
     Entry findByNameAndEnterNull(String name);
     Entry findByEnterNotNullAndName(String name);
     Entry findByEnterNullAndInKursFalseAndName(String name);
