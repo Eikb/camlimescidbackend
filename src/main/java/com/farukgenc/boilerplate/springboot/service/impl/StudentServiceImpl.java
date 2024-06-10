@@ -8,6 +8,7 @@ import com.farukgenc.boilerplate.springboot.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -18,11 +19,12 @@ public class StudentServiceImpl implements StudentService {
     private final StudentRepository studentRepository;
     @Override
     public List<StudentDto> getAllStudents() {
-        List<StudentDto> studentDtoList = studentRepository.findAll()
+
+        return studentRepository.findAll()
                 .stream()
                 .map(student -> new StudentDto(student.getId(), student.getName()))
+                .sorted(Comparator.comparing(StudentDto::getId)) // Sortieren nach id
                 .collect(Collectors.toList());
-       return studentDtoList;
     }
 
     @Override
