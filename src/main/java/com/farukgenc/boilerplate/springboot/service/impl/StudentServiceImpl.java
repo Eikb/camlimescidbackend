@@ -35,12 +35,20 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public String createStudent(Student student) {
+    public void createStudent(Student student) {
         try{
             studentRepository.save(student);
-            return "Schüler wurde erstellt";
         }catch (StudentException studentException){
             throw new StudentException("Der Schüler konnte nicht angelegt werden. Fehlen Informationen?");
+        }
+    }
+
+    @Override
+    public void createCollectionOfStudent(List<Student> students) {
+        try {
+            studentRepository.saveAll(students);
+        }catch (Exception e){
+            throw new StudentException("Die Schüler konnten nicht angelegt werden " + e.getMessage());
         }
     }
 
